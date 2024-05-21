@@ -65,8 +65,8 @@ function runFunction() {
     var a = result[0];
     var b = result[1];
   
-    if (typeof a !== 'number' || a < 0 || a > 10) {
-      document.getElementById("result").innerHTML = "Error: The first item must be a number between 0 and 10.";
+    if (typeof a !== 'number' || a < 0 || a > 5) {
+      document.getElementById("result").innerHTML = "Error: The first item must be a number between 0 and 5.";
       return;
     }
   
@@ -334,7 +334,7 @@ function runFunction() {
         }     
       }
       // Проверка коллизиии тру если норм, false если краш
-      hasColision(shuttle){
+      hasCollision(shuttle){
         
         var y = Point.rY(this.findPointY(shuttle.x));
         //console.log("HasCol0:"+y,Point.rY(shuttle.y));
@@ -343,34 +343,38 @@ function runFunction() {
         if ( y+(shuttle.height/2)-3>Point.rY(shuttle.y)){
           //console.log("HasCol1:"+y,Point.rY(shuttle.y));
           // Неудачная посадка
-          if ((shuttle.speedX > 5)) {
+          if ((shuttle.speedX > 5 || shuttle.speedX < -5)) {
             console.log("Crush!!!");
             MM.crush();
-            MM.text.text = `Crush Cause - the horizontal
-            speed was too high`;
+            MM.text.text = `Crush Cause - the 
+            horizontal speed
+            was too high`;
           }
-          else if((shuttle.speedY > 5)){
+          else if((shuttle.speedY > 5 || shuttle.speedY < -5)){
             console.log("Crush!!!");
             MM.crush();
-            MM.text.text = `Crush Cause - the verical 
-            speed was too high`;
+            MM.text.text = `Crush Cause - the
+            verical speed 
+            was too high`;
           }
           else if((angle >= 10) || (angle <= -10)){
             console.log("Crush!!!");
             MM.crush();
-            MM.text.text = `Crush Cause - the angle
-            was too high`;
+            MM.text.text = `Crush Cause - the
+            angle was 
+            too high`;
           }
           else if(!(this.isPlateau(shuttle.x-shuttle.width/2)) || !(this.isPlateau(shuttle.x)) || !(this.isPlateau(shuttle.x+shuttle.width/2)))  {
             console.log("Crush!!!");
             MM.crush();
-            MM.text.text = `Crush Cause - you are
-            landing not on plateau`;
+            MM.text.text = `Crush Cause - you 
+            are landing not
+            on plateau`;
           }
           else if(Point.rY(shuttle.y)>=1.25*height || shuttle.x<=-0.25*width || shuttle.x>=1.25*width){
             MM.crush();
-            MM.text.text = `Crush Cause - you leave
-             land area`;
+            MM.text.text = `Crush Cause - you
+            leave the landing area`;
             console.log("Far distance");
           } 
           // Удачная посадка

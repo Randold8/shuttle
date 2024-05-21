@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         MM.update(); 
 
         //Проверка коллизии
-        if (MM.land.hasColision(shuttle)) {
+        if (MM.land.hasCollision(shuttle)) {
           console.log(MM.land+`Visual: Collision ${shuttle.x} ${ Point.rY(shuttle.y)}`);
           if (!nextMissionFlag){
             app.ticker.stop();

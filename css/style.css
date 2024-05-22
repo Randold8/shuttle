@@ -101,8 +101,8 @@ body {
   }
 
   .mars-image {
-    background-image: url('../img/MarsLand.jpg');
-    object-fit: fill;
+    background-image: url('../img/MarsLand2.jpg');
+    background-size: cover;
     width: 45vw;
     height: 54vh;
     animation: flicker 5s infinite;

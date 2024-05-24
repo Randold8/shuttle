@@ -125,6 +125,7 @@ function runFunction() {
         fanfare.play();
         alert('Вы прошли все миссии! Поздравляем! Вы - настоящий покоритель Марса.');
         fanfare.pause();
+        theme.pause();
       }
       console.log(`${missionIndex} ${Mission.Missions.length} mission has begun ${shuttle.x} ${Point.rY(shuttle.y)}`)
     }

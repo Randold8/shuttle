@@ -121,10 +121,12 @@ function runFunction() {
       }
       else{
         app.ticker.stop();
+        fanfare.currentTime=0;
         fanfare.volume = 0.4;
         fanfare.play();
         alert('Вы прошли все миссии! Поздравляем! Вы - настоящий покоритель Марса.');
         fanfare.pause();
+        theme.pause();
       }
       console.log(`${missionIndex} ${Mission.Missions.length} mission has begun ${shuttle.x} ${Point.rY(shuttle.y)}`)
     }
@@ -362,11 +364,11 @@ function runFunction() {
             speed was 
             too high`;
           }
-          else if((shuttle.speedY < -5)){
+          else if((shuttle.speedY > 5)){
             console.log("Crush!!!");
             MM.crush();
             MM.text.text = `Crush Cause - the 
-            verical speed
+            vertical speed
             was too high`;
           }
           else if((angle >= 10) || (angle <= -10)){
@@ -439,7 +441,7 @@ function runFunction() {
       static Missions = [ 
         // Новые по концептам
         new Mission(0.5,0.2,0,0,0,1600, [[0.0,0.5],[0.2,0.4],[0.3,0.55],[0.4,0.4],[0.6,0.4],[0.7,0.8],[0.8,0.7],[1,0.6] ]   ),
-        new Mission(0.25,0.3,0,0,0,1600, [[0.0,0.4],[0.2,0.6],[0.3,0.45],[0.4,0.35],[0.6,0.4],[0.7,0.3],[0.85,0.3],[1,0.8] ]   ),
+        new Mission(0.25,0.3,0,0,0,1600, [[0.0,0.4],[0.2,0.6],[0.3,0.45],[0.4,0.35],[0.6,0.4],[0.7,0.3],[0.9,0.3],[1,0.8] ]   ),
         new Mission(0.12,0.3,1,0,0,1600, [[0.0,0.3],[0.1,0.31],[0.15,0.65],[0.25,0.55],[0.30,0.6],[0.37,0.79],[0.40,0.3],[0.45,0.1],[0.50,0.3],[0.65,0.6],[0.68,0.72],[0.71,0.5],[0.75,0.45],[0.86,0.45],[0.99,0.9]]    ),
         new Mission(0.9,0.15,0,0,0,2600, [[0,0.8],[0.2,0.8],[0.27,0.55],[0.4,0.45],[0.5,0.50],[0.6,0.65],[0.75,0.55],[0.9,0.67],[1,0.63] ]   ),
         

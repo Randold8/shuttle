@@ -121,6 +121,7 @@ function runFunction() {
       }
       else{
         app.ticker.stop();
+        fanfare.currentTime=0;
         fanfare.volume = 0.4;
         fanfare.play();
         alert('Вы прошли все миссии! Поздравляем! Вы - настоящий покоритель Марса.');
